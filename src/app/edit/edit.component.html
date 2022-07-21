@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form id="order-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="medicine">Medicine</label>
+                    <input name="medicine" required [ngModel]="order?.medicine" #medicine="ngModel" type="text" id="medicine" class="form-control required" size="120" max="120">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="indication">Indication:</label>
+                    <input name="Indication" required [ngModel]="order?.indication" #indication="ngModel" ngModel type="text" id="Indication" class="form-control required" size="120" max="255">
+                    <!-- <div *ngIf="indication.dirty"  class="alert-danger">Enter a indication</div> -->
+                </div>
+            </div>
+            <div class="danger alert-danger" *ngIf="medicine.touched && !medicine.valid">Enter valid info</div>
+            <div class="row">
+                <div class="col-xs-12 btn-toolbar">
+                    <button class="btn btn-success" [disabled]="!f.valid" type="submit">Save</button>
+                    <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
